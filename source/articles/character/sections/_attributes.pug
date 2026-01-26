@@ -1,0 +1,215 @@
++div({name:'attribute grid'}).attribute-grid
+    div(class='span4 header-label') Attribute + Bonus = Total
+    label(class='attribute-label') Fitness
+    +input({name:'fitness',type:'number',value:'0', trigger:{affects:['fitness_total']}}).attribute-input
+    +input({name:'fitness bonus',type:'number',value:'0', trigger:{affects:['fitness_total']}}).attribute-input
+    +input({name:'fitness total',type:'number',value:'0', trigger:{formula:'@{fitness} + @{fitness_bonus}'}}).attribute-input
+    +button({name: 'fitness roll', value: '&{template:default} {{name= @{character_name} | Fitness Roll}} {{result=[[1d12 + @{fitness_total} + ?{Circumstance Bonus|0} &{tracker}]]}}'}).roll-button
+    label(class='attribute-label') Reflexes
+    +input({name:'reflexes',type:'number',value:'0', trigger:{affects:['reflexes_total']}}).attribute-input
+    +input({name:'reflexes bonus',type:'number',value:'0', trigger:{affects:['reflexes_total']}}).attribute-input
+    +input({name:'reflexes total',type:'number',value:'0', trigger:{formula:'@{reflexes} + @{reflexes_bonus}'}}).attribute-input
+    +button({name: 'reflexes roll', value: '&{template:default} {{name= @{character_name} | Reflexes Roll}} {{result=[[1d12 + @{reflexes_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='attribute-label') Senses
+    +input({name:'senses',type:'number',value:'0', trigger:{affects:['senses_total']}}).attribute-input
+    +input({name:'senses bonus',type:'number',value:'0', trigger:{affects:['senses_total']}}).attribute-input
+    +input({name:'senses total',type:'number',value:'0', trigger:{formula:'@{senses} + @{senses_bonus}'}}).attribute-input
+    +button({name: 'senses roll', value: '&{template:default} {{name= @{character_name} | Senses Roll}} {{result=[[1d12 + @{senses_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='attribute-label') Willpower
+    +input({name:'willpower',type:'number',value:'0', trigger:{affects:['willpower_total']}},).attribute-input
+    +input({name:'willpower bonus',type:'number',value:'0', trigger:{affects:['willpower_total']}}).attribute-input    
+    +input({name:'willpower total',type:'number',value:'0', trigger:{formula:'@{willpower} + @{willpower_bonus}'}}).attribute-input
+    +button({name: 'willpower roll', value: '&{template:default} {{name= @{character_name} | Willpower Roll}} {{result=[[1d12 + @{willpower_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
++div({name:'other attributes'}).other-attributes
+    +input-label({inputObj:{name:'defense', type:'number'},spanObj:{'data-i18n':'Defense'}})
+    +input-label({inputObj:{name:'hit points', type:'number'},spanObj:{'data-i18n':'Hit Points'}})
+    +input-label({inputObj:{name:'max hit points', type:'number'},spanObj:{'data-i18n':'Max Hit Points'}})
+    +div({name:'initiative grid'}).initiative-grid
+        label(class='header-label') Initiative
+        +button({name: 'initiative roll', value: '&{template:default} {{name= @{character_name} | Initiative Roll}} {{result=[[1d12 + @{reflexes_total} + ?{Circumstance Bonus|0} &{tracker}]]}}'}).roll-button
+    label(class='header-label') Protection & Immunity
+    +adaptiveTextarea({name:'protection and immunity', placeholder:'Enter Protections & Immunities here...'  })
++div({name:'skill grid'}).skill-grid
+    div(class='span4 header-label') Skill + Bonus = Total
+    label(class='skill-label') Art & Culture
+    +input({name:'art and culture',type:'number',value:'0', trigger:{affects:['art_and_culture_total']}}).skill-input
+    +input({name:'art and culture bonus',type:'number',value:'0', trigger:{affects:['art_and_culture_total']}}).skill-input
+    +input({name:'art and culture total',type:'number',value:'0', trigger:{formula:'@{art_and_culture} + @{art_and_culture_bonus}'}}).skill-input
+    +button({name: 'art and culture roll', value: '&{template:default} {{name= @{character_name} | Art & Culture Roll}} {{result=[[1d12 + @{art_and_culture_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') Astronomy
+    +input({name:'astronomy',type:'number',value:'0', trigger:{affects:['astronomy_total']}}).skill-input
+    +input({name:'astronomy bonus',type:'number',value:'0', trigger:{affects:['astronomy_total']}}).skill-input
+    +input({name:'astronomy total',type:'number',value:'0', trigger:{formula:'@{astronomy} + @{astronomy_bonus}'}}).skill-input
+    +button({name: 'astronomy roll', value: '&{template:default} {{name= @{character_name} | Astronomy Roll}} {{result=[[1d12 + @{astronomy_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') Athletics
+    +input({name:'athletics',type:'number',value:'0', trigger:{affects:['athletics_total']}}).skill-input
+    +input({name:'athletics bonus',type:'number',value:'0', trigger:{affects:['athletics_total']}}).skill-input
+    +input({name:'athletics total',type:'number',value:'0', trigger:{formula:'@{athletics} + @{athletics_bonus}'}}).skill-input
+    +button({name: 'athletics roll', value: '&{template:default} {{name= @{character_name} | Athletics Roll}} {{result=[[1d12 + @{athletics_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') Burglary
+    +input({name:'burglary',type:'number',value:'0', trigger:{affects:['burglary_total']}}).skill-input
+    +input({name:'burglary bonus',type:'number',value:'0', trigger:{affects:['burglary_total']}}).skill-input
+    +input({name:'burglary total',type:'number',value:'0', trigger:{formula:'@{burglary} + @{burglary_bonus}'}}).skill-input
+    +button({name: 'burglary roll', value: '&{template:default} {{name= @{character_name} | Burglary Roll}} {{result=[[1d12 + @{burglary_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') Combat
+    +input({name:'combat', type:'number', value:'0', trigger:{affects:['combat_total']}}).skill-input
+    +input({name:'combat bonus', type:'number', value:'0', trigger:{affects:['combat_total']}}).skill-input
+    +input({name:'combat total', type:'number', trigger:{formula:'@{combat} + @{combat_bonus}'}}).skill-input
+    +button({name: 'combat roll', value: '&{template:default} {{name= @{character_name} | Combat Roll}} {{result=[[1d12 + @{combat_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') Commerce
+    +input({name:'commerce',type:'number',value:'0', trigger:{affects:['commerce_total']}}).skill-input
+    +input({name:'commerce bonus',type:'number',value:'0', trigger:{affects:['commerce_total']}}).skill-input
+    +input({name:'commerce total',type:'number',value:'0', trigger:{formula:'@{commerce} + @{commerce_bonus}'}}).skill-input
+    +button({name: 'commerce roll', value: '&{template:default} {{name= @{character_name} | Commerce Roll}} {{result=[[1d12 + @{commerce_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') Deception
+    +input({name:'deception',type:'number',value:'0', trigger:{affects:['deception_total']}}).skill-input
+    +input({name:'deception bonus',type:'number',value:'0', trigger:{affects:['deception_total']}}).skill-input
+    +input({name:'deception total',type:'number',value:'0', trigger:{formula:'@{deception} + @{deception_bonus}'}}).skill-input
+    +button({name: 'deception roll', value: '&{template:default} {{name= @{character_name} | Deception Roll}} {{result=[[1d12 + @{deception_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') Engineering
+    +input({name:'engineering',type:'number',value:'0', trigger:{affects:['engineering_total']}}).skill-input
+    +input({name:'engineering bonus',type:'number',value:'0', trigger:{affects:['engineering_total']}}).skill-input
+    +input({name:'engineering total',type:'number',value:'0', trigger:{formula:'@{engineering} + @{engineering_bonus}'}}).skill-input
+    +button({name: 'engineering roll', value: '&{template:default} {{name= @{character_name} | Engineering Roll}} {{result=[[1d12 + @{engineering_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') Faith
+    +input({name:'faith',type:'number',value:'0', trigger:{affects:['faith_total']}}).skill-input
+    +input({name:'faith bonus',type:'number',value:'0', trigger:{affects:['faith_total']}}).skill-input
+    +input({name:'faith total',type:'number',value:'0', trigger:{formula:'@{faith} + @{faith_bonus}'}}).skill-input
+    +button({name: 'faith roll', value: '&{template:default} {{name= @{character_name} | Faith Roll}} {{result=[[1d12 + @{faith_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') History & Law
+    +input({name:'history and law',type:'number',value:'0', trigger:{affects:['history_and_law_total']}}).skill-input
+    +input({name:'history and law bonus',type:'number',value:'0', trigger:{affects:['history_and_law_total']}}).skill-input
+    +input({name:'history and law total',type:'number',value:'0', trigger:{formula:'@{history_and_law} + @{history_and_law_bonus}'}}).skill-input
+    +button({name: 'history and law roll', value: '&{template:default} {{name= @{character_name} | History & Law Roll}} {{result=[[1d12 + @{history_and_law_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') Influence
+    +input({name:'influence',type:'number',value:'0', trigger:{affects:['influence_total']}}).skill-input
+    +input({name:'influence bonus',type:'number',value:'0', trigger:{affects:['influence_total']}}).skill-input
+    +input({name:'influence total',type:'number',value:'0', trigger:{formula:'@{influence} + @{influence_bonus}'}}).skill-input
+    +button({name: 'influence roll', value: '&{template:default} {{name= @{character_name} | Influence Roll}} {{result=[[1d12 + @{influence_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') Intuition
+    +input({name:'intuition',type:'number',value:'0', trigger:{affects:['intuition_total']}}).skill-input
+    +input({name:'intuition bonus',type:'number',value:'0', trigger:{affects:['intuition_total']}}).skill-input
+    +input({name:'intuition total',type:'number',value:'0', trigger:{formula:'@{intuition} + @{intuition_bonus}'}}).skill-input
+    +button({name: 'intuition roll', value: '&{template:default} {{name= @{character_name} | Intuition Roll}} {{result=[[1d12 + @{intuition_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') Investigate
+    +input({name:'investigate',type:'number',value:'0', trigger:{affects:['investigate_total']}}).skill-input
+    +input({name:'investigate bonus',type:'number',value:'0', trigger:{affects:['investigate_total']}}).skill-input
+    +input({name:'investigate total',type:'number',value:'0', trigger:{formula:'@{investigate} + @{investigate_bonus}'}}).skill-input
+    +button({name: 'investigate roll', value: '&{template:default} {{name= @{character_name} | Investigate Roll}} {{result=[[1d12 + @{investigate_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') Language
+    +input({name:'language',type:'number',value:'0', trigger:{affects:['language_total']}}).skill-input
+    +input({name:'language bonus',type:'number',value:'0', trigger:{affects:['language_total']}}).skill-input
+    +input({name:'language total',type:'number',value:'0', trigger:{formula:'@{language} + @{language_bonus}'}}).skill-input
+    +button({name: 'language roll', value: '&{template:default} {{name= @{character_name} | Language Roll}} {{result=[[1d12 + @{language_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') Magic
+    +input({name:'magic',type:'number',value:'0', trigger:{affects:['magic_total']}}).skill-input
+    +input({name:'magic bonus',type:'number',value:'0', trigger:{affects:['magic_total']}}).skill-input
+    +input({name:'magic total',type:'number',value:'0', trigger:{formula:'@{magic} + @{magic_bonus}'}}).skill-input
+    +button({name: 'magic roll', value: '&{template:default} {{name= @{character_name} | Magic Roll}} {{result=[[1d12 + @{magic_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') Medicine
+    +input({name:'medicine',type:'number',value:'0', trigger:{affects:['medicine_total']}}).skill-input
+    +input({name:'medicine bonus',type:'number',value:'0', trigger:{affects:['medicine_total']}}).skill-input
+    +input({name:'medicine total',type:'number',value:'0', trigger:{formula:'@{medicine} + @{medicine_bonus}'}}).skill-input
+    +button({name: 'medicine roll', value: '&{template:default} {{name= @{character_name} | Medicine Roll}} {{result=[[1d12 + @{medicine_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') Riding
+    +input({name:'riding',type:'number',value:'0', trigger:{affects:['riding_total']}}).skill-input
+    +input({name:'riding bonus',type:'number',value:'0', trigger:{affects:['riding_total']}}).skill-input
+    +input({name:'riding total',type:'number',value:'0', trigger:{formula:'@{riding} + @{riding_bonus}'}}).skill-input
+    +button({name: 'riding roll', value: '&{template:default} {{name= @{character_name} | Riding Roll}} {{result=[[1d12 + @{riding_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') Sailing
+    +input({name:'sailing',type:'number',value:'0', trigger:{affects:['sailing_total']}}).skill-input
+    +input({name:'sailing bonus',type:'number',value:'0', trigger:{affects:['sailing_total']}}).skill-input
+    +input({name:'sailing total',type:'number',value:'0', trigger:{formula:'@{sailing} + @{sailing_bonus}'}}).skill-input
+    +button({name: 'sailing roll', value: '&{template:default} {{name= @{character_name} | Sailing Roll}} {{result=[[1d12 + @{sailing_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') Stealth
+    +input({name:'stealth',type:'number',value:'0', trigger:{affects:['stealth_total']}}).skill-input
+    +input({name:'stealth bonus',type:'number',value:'0', trigger:{affects:['stealth_total']}}).skill-input
+    +input({name:'stealth total',type:'number',value:'0', trigger:{formula:'@{stealth} + @{stealth_bonus}'}}).skill-input
+    +button({name: 'stealth roll', value: '&{template:default} {{name= @{character_name} | Stealth Roll}} {{result=[[1d12 + @{stealth_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') Supernatural
+    +input({name:'supernatural',type:'number',value:'0', trigger:{affects:['supernatural_total']}}).skill-input
+    +input({name:'supernatural bonus',type:'number',value:'0', trigger:{affects:['supernatural_total']}}).skill-input
+    +input({name:'supernatural total',type:'number',value:'0', trigger:{formula:'@{supernatural} + @{supernatural_bonus}'}}).skill-input
+    +button({name: 'supernatural roll', value: '&{template:default} {{name= @{character_name} | Supernatural Roll}} {{result=[[1d12 + @{supernatural_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
+    label(class='skill-label') Survival
+    +input({name:'survival',type:'number',value:'0', trigger:{affects:['survival_total']}}).skill-input
+    +input({name:'survival bonus',type:'number',value:'0', trigger:{affects:['survival_total']}}).skill-input
+    +input({name:'survival total',type:'number',value:'0', trigger:{formula:'@{survival} + @{survival_bonus}'}}).skill-input
+    +button({name: 'survival roll', value: '&{template:default} {{name= @{character_name} | Survival Roll}} {{result=[[1d12 + @{survival_total} + ?{Circumstance Bonus|0}]]}}'}).roll-button
++div({name:'other elements'}).other-elements
+    label(class='header-label') Armor
+    +adaptiveTextarea({name:'armor', placeholder:'Enter armor details here...'  })
+    +div({name:'weapon grid one'}).weapon-grid
+        label(class='header-label startspan3') Weapon One
+        +select-label({inputObj:{name:'damage die one'},spanObj:{'data-i18n':'Damage Die'}})
+            +option({value:'d4'})
+                | d4
+            +option({value:'d6'})
+                | d6
+            +option({value:'d8'})
+                | d8
+            +option({value:'d10'})
+                | d10
+            +option({value:'d12'})
+                | d12
+        +select-label({inputObj:{name:'weapon one type'},spanObj:{'data-i18n':'Type'}})
+            +option({value:'steel'})
+                | Steel
+            +option({value:'blackiron'})
+                | Black Iron
+            +option({value:'silver'})
+                | Silver
+            +option({value:'bronze'})
+                | Bronze
+            +option({value:'natural'})
+                | Natural
+        +button({name: 'weapon one damage roll', value: '&{template:default} {{name= @{character_name} | Weapon One Attack Roll}} [[1d12+@{combat_total} + ?{Circumstance Bonus|0}]] [[ [[?{Total Damage Dice?|1}@{damage_die_one} + ?{Damage Bonus|0}]] * 2 ]] {{attack=$[[0]]}} {{damage=$[[1]]}}  {{Crit Damage=$[[2]]}}'}).roll-button.grid-left
+        +adaptiveTextarea({name:'weapon one', placeholder:'Enter first weapon details here...'  }).startspan3
+    +div({name:'weapon grid one'}).weapon-grid
+        label(class='header-label startspan3') Weapon Two
+        +select-label({inputObj:{name:'damage die two'},spanObj:{'data-i18n':'Damage Die'}})
+            +option({value:'d4'})
+                | d4
+            +option({value:'d6'})
+                | d6
+            +option({value:'d8'})
+                | d8
+            +option({value:'d10'})
+                | d10
+            +option({value:'d12'})
+                | d12
+        +select-label({inputObj:{name:'weapon two type'},spanObj:{'data-i18n':'Type'}})
+            +option({value:'steel'})
+                | Steel
+            +option({value:'blackiron'})
+                | Black Iron
+            +option({value:'silver'})
+                | Silver
+            +option({value:'bronze'})
+                | Bronze
+            +option({value:'natural'})
+                | Natural
+        +button({name: 'weapon two damage roll', value: '&{template:default} {{name= @{character_name} | Weapon Two Attack Roll}} [[1d12+@{combat_total} + ?{Circumstance Bonus|0}]] [[ [[?{Total Damage Dice?|1}@{damage_die_two} + ?{Damage Bonus|0}]] * 2 ]] {{attack=$[[0]]}} {{damage=$[[1]]}}  {{Crit Damage=$[[2]]}}'}).roll-button.grid-left
+        +adaptiveTextarea({name:'weapon two', placeholder:'Enter second weapon details here...'  }).startspan3
+    label(class='header-label') Passive Abilities
+    +adaptiveTextarea({name:'passives', placeholder:'Enter passive abilities here...'  })
+    label(class='header-label') Actions
+    +adaptiveTextarea({name:'actions', placeholder:'Enter actions here...'  })
+    label(class='header-label') Maneuvers
+    +input-label({inputObj:{name:'manueverused', type:'checkbox'},spanObj:{'data-i18n':'Maneuver Used?'}})
+    +adaptiveTextarea({name:'maneuvers', placeholder:'Enter maneuvers here...'  })
+    label(class='header-label') Perks
+    +adaptiveTextarea({name:'perks', placeholder:'Enter perks here...'  })
++div({name:'languages'}).other-block
+    label(class='header-label') Languages
+    +adaptiveTextarea({name:'languages', placeholder:'(2 + Language Skill)'})
++div({name:'fighting styles'}).other-block
+    label(class='header-label') Fighting Styles
+    +adaptiveTextarea({name:'fighting styles', placeholder:'(2 + Combat Skill)'})
++div({name:'equipment'}).span2.other-block
+    label(class='header-label') Equipment
+    +div({name:'equipment grid'}).equipment-grid
+        +input-label({inputObj:{name:'crowns', type:'number'},spanObj:{'data-i18n':'Crowns'}})
+        +input-label({inputObj:{name:'marks', type:'number'},spanObj:{'data-i18n':'Marks'}})
+        +input-label({inputObj:{name:'total weight', type:'number'},spanObj:{'data-i18n':'Total Weight'}})
+    +adaptiveTextarea({name:'equipment', placeholder:'Enter equipment here...'  })
