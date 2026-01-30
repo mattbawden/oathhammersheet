@@ -5,7 +5,7 @@ include ./mixins/_index.pug
 +hidden({name:'sheet version',value:0})
 //- Now, for our actual sheet. We'll wrap this in a main element and give it an ID of main.
 main#main
-  +img({name: 'header', src: 'https://raw.githubusercontent.com/mattbawden/hordewarsadvanced/refs/heads/main/assets/images/character/oathhammercslogo.png', alt: 'Character Header Image'}).image-logo
+  +img({name: 'header', src: 'https://raw.githubusercontent.com/mattbawden/oathhammersheet/refs/heads/main/assets/images/character/oathhammercslogo.png', alt: 'Character Header Image'}).image-logo
   +tabs({name:'oathhammersheet',defaultActiveTab:'character'}).flex-box.tiny-gap
     +tab({name:'character',container:'article'})
       include articles/character/_character.pug
