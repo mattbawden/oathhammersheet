@@ -195,20 +195,15 @@
     +input({name:'tracking bonus',type:'number',value:'0', trigger:{affects:['tracking_total']}}).skill-input
     +input({name:'tracking total',type:'number',value:'0', trigger:{formula:'@{tracking} + @{tracking_bonus} + @{intelligencebonus}'}}).skill-input
     +button({name: 'tracking roll', value: '&{template:default} {{name= @{character_name} | Tracking Roll}} {{result=[[(@{tracking_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
-+div({name:'weapons'}).span2.other-block
-    label(class='header-label') Weapons
-    +div({name:'weapons grid'}).weapons-grid
-        label(class='header-label') Weapon
-        label(class='header-label') Range
-        label(class='header-label') Damage
-        label(class='header-label') AP
-        label(class='header-label') Traits
-        +input({name:'weapon name', type:'text', placeholder:'Weapon Name'}).weapon-input
-        +input({name:'weapon range', type:'text', placeholder:'Range'}).weapon-input
-        +input({name:'weapon damage', type:'number', placeholder:'Damage'}).weapon-input
-        +input({name:'weapon ap', type:'text', placeholder:'AP'}).weapon-input
-        +input({name:'weapon traits', type:'text', placeholder:'Weapon Traits'}).weapon-input
-    +adaptiveTextarea({name:'weapondetails', placeholder:'Enter weapon details here...'  })
++div({name:'weapons'}).span2
+    +repeating_section('attacks','weapons',['name','range','damage','AP','traits'],'atk')
+        +div({name:'weapon grid'}).weapon-grid
+            +text({name:'weaponname', class:'weapon-input'})
+            +text({name:'weaponrange', class:'weapon-input'})
+            +number({name:'weapondamage', value:'0', class:'weapon-input'})
+            +number({name:'weaponap', value:'0', class:'weapon-input', 'data-i18n':'AP'})
+            +text({name:'weapontraits', class:'weapon-input'})
+            +button({name:'weapon damage roll', value: '&{template:default} {{name= @{character_name} | @{weaponname} Damage Roll}} {{result=[[(@{weapondamage}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
 +div({name:'equipment'}).span2.other-block
     label(class='header-label') Equipment
     +div({name:'equipment grid'}).equipment-grid
@@ -225,3 +220,12 @@
     +div({name:'magic grid'}).magic-grid
         +input-label({inputObj:{name:'arcane stress', type:'number'},spanObj:{'data-i18n':'Arcane Stress'}})
         +input-label({inputObj:{name:'stress threshold', type:'number'},spanObj:{'data-i18n':'Stress Threshold'}})
+
+    
+
+    
+    
+    
+    
+    
+    

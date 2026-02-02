@@ -1,3 +1,10 @@
-+templateWrapper(templateName)
-  //- Create your template here
-  +characterLink
++templateWrapper('custom')
+  .header
+    +templateConditionalDisplay('name')
+      h5 {{name}}
+      h5 {{roll_name}}
+    +characterLink()
+  +templateConditionalDisplay('roll')
+    .template-row 
+      +templateConditionalDisplay('roll_name')
+        span.description Result {{roll}}

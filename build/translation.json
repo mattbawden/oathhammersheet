@@ -1,8 +1,12 @@
 {
+  "AP": "AP",
   "Arcane Stress": "Arcane Stress",
   "Character Name": "Character Name",
   "Class": "Class",
   "Copper": "Copper",
+  "Current Grit": "Current Grit",
+  "Current Luck": "Current Luck",
+  "damage": "damage",
   "Encumbrance Limit": "Encumbrance Limit",
   "Experience": "Experience",
   "Gold": "Gold",
@@ -10,10 +14,14 @@
   "header": "Character Header Image",
   "Lineage": "Lineage",
   "Luck Points": "Luck Points",
+  "name": "name",
+  "range": "range",
   "Silver": "Silver",
   "Stress Threshold": "Stress Threshold",
   "tabs-oathhammersheet-character": "Character",
   "tabs-oathhammersheet-npc": "NPC",
   "tabs-oathhammersheet-settings": "Settings",
-  "Total Encumbrance": "Total Encumbrance"
+  "Total Encumbrance": "Total Encumbrance",
+  "traits": "traits",
+  "weapons": "weapons"
 }
