@@ -110,7 +110,7 @@
   <div class="other-attributes" name="attr_other_attributes" title="@{other_attributes}">
     <div class="initiative-grid" name="attr_initiative_grid" title="@{initiative_grid}">
       <label class="header-label">Initiative</label>
-      <button class="roll-button" name="roll_initiative_roll" value="&{template:default} {{name= @{character_name} | Initiative Roll}} {{result=[[(@{leadership_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}&{tracker}]]}}" type="roll">
+      <button class="roll-button" name="roll_initiative_roll" value="&{template:custom} {{name= @{character_name} | Initiative Roll}} {{result=[[(@{leadership_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}&{tracker}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
       </button>
     </div>
     <label class="header-label">Oaths</label>
@@ -145,7 +145,7 @@
     </div>
     <div class="armor-roll" name="attr_armor_roll" title="@{armor_roll}">
       <label class="header-label">Armor Roll </label>
-      <button class="roll-button" name="roll_armor_roll" value="&{template:default} {{name= @{character_name} | Armor Roll}} {{result=[[(@{armor_av}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+      <button class="roll-button" name="roll_armor_roll" value="&{template:custom} {{name= @{character_name} | Armor Roll}} {{result=[[(@{armor_av}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
       </button>
     </div>
   </div>
@@ -160,175 +160,175 @@
     <input class="skill-input" name="attr_academics" type="number" value="0" min="0" max="6" title="@{academics}"/>
     <input class="skill-input" name="attr_academics_bonus" type="number" value="0" title="@{academics_bonus}"/>
     <input class="skill-input" name="attr_academics_total" type="number" value="0" title="@{academics_total}"/>
-    <button class="roll-button" name="roll_academics_roll" value="&{template:default} {{name= @{character_name} | Academics Roll}} {{result=[[(@{academics_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_academics_roll" value="&{template:custom} {{name= @{character_name} | Academics Roll}} {{result=[[(@{academics_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Acrobatics (Ag)</label>
     <input class="skill-input" name="attr_acrobatics" type="number" value="0" min="0" max="6" title="@{acrobatics}"/>
     <input class="skill-input" name="attr_acrobatics_bonus" type="number" value="0" title="@{acrobatics_bonus}"/>
     <input class="skill-input" name="attr_acrobatics_total" type="number" value="0" title="@{acrobatics_total}"/>
-    <button class="roll-button" name="roll_acrobatics_roll" value="&{template:default} {{name= @{character_name} | Acrobatics Roll}} {{result=[[(@{acrobatics_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_acrobatics_roll" value="&{template:custom} {{name= @{character_name} | Acrobatics Roll}} {{result=[[(@{acrobatics_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Animal Handling (WP)</label>
     <input class="skill-input" name="attr_animalhandling" type="number" value="0" min="0" max="6" title="@{animalhandling}"/>
     <input class="skill-input" name="attr_animalhandling_bonus" type="number" value="0" title="@{animalhandling_bonus}"/>
     <input class="skill-input" name="attr_animalhandling_total" type="number" value="0" title="@{animalhandling_total}"/>
-    <button class="roll-button" name="roll_animalhandling_roll" value="&{template:default} {{name= @{character_name} | Animal Handling Roll}} {{result=[[(@{animalhandling_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_animalhandling_roll" value="&{template:custom} {{name= @{character_name} | Animal Handling Roll}} {{result=[[(@{animalhandling_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Athletics (M)</label>
     <input class="skill-input" name="attr_athletics" type="number" value="0" min="0" max="6" title="@{athletics}"/>
     <input class="skill-input" name="attr_athletics_bonus" type="number" value="0" title="@{athletics_bonus}"/>
     <input class="skill-input" name="attr_athletics_total" type="number" value="0" title="@{athletics_total}"/>
-    <button class="roll-button" name="roll_athletics_roll" value="&{template:default} {{name= @{character_name} | Athletics Roll}} {{result=[[(@{athletics_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_athletics_roll" value="&{template:custom} {{name= @{character_name} | Athletics Roll}} {{result=[[(@{athletics_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Brewing (Int)</label>
     <input class="skill-input" name="attr_brewing" type="number" value="0" min="0" max="6" title="@{brewing}"/>
     <input class="skill-input" name="attr_brewing_bonus" type="number" value="0" title="@{brewing_bonus}"/>
     <input class="skill-input" name="attr_brewing_total" type="number" title="@{brewing_total}"/>
-    <button class="roll-button" name="roll_brewing_roll" value="&{template:default} {{name= @{character_name} | Brewing Roll}} {{result=[[(@{brewing_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_brewing_roll" value="&{template:custom} {{name= @{character_name} | Brewing Roll}} {{result=[[(@{brewing_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Carpentry (Ag)</label>
     <input class="skill-input" name="attr_carpentry" type="number" value="0" min="0" max="6" title="@{carpentry}"/>
     <input class="skill-input" name="attr_carpentry_bonus" type="number" value="0" title="@{carpentry_bonus}"/>
     <input class="skill-input" name="attr_carpentry_total" type="number" value="0" title="@{carpentry_total}"/>
-    <button class="roll-button" name="roll_carpentry_roll" value="&{template:default} {{name= @{character_name} | Carpentry Roll}} {{result=[[(@{carpentry_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_carpentry_roll" value="&{template:custom} {{name= @{character_name} | Carpentry Roll}} {{result=[[(@{carpentry_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Defense (Ag)</label>
     <input class="skill-input" name="attr_defenseag" type="number" value="0" min="0" max="6" title="@{defenseag}"/>
     <input class="skill-input" name="attr_defenseag_bonus" type="number" value="0" title="@{defenseag_bonus}"/>
     <input class="skill-input" name="attr_defenseag_total" type="number" value="0" title="@{defenseag_total}"/>
-    <button class="roll-button" name="roll_defenseag_roll" value="&{template:default} {{name= @{character_name} | Defense Roll Agility}} {{result=[[(@{defenseag_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_defenseag_roll" value="&{template:custom} {{name= @{character_name} | Defense Roll Agility}} {{result=[[(@{defenseag_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Defense (M)</label>
     <input class="skill-input" name="attr_defensem" type="number" value="0" min="0" max="6" title="@{defensem}"/>
     <input class="skill-input" name="attr_defensem_bonus" type="number" value="0" title="@{defensem_bonus}"/>
     <input class="skill-input" name="attr_defensem_total" type="number" value="0" title="@{defensem_total}"/>
-    <button class="roll-button" name="roll_defensem_roll" value="&{template:default} {{name= @{character_name} | Defense Roll Might}} {{result=[[(@{defensem_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_defensem_roll" value="&{template:custom} {{name= @{character_name} | Defense Roll Might}} {{result=[[(@{defensem_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Dexterity (Ag)</label>
     <input class="skill-input" name="attr_dexterity" type="number" value="0" min="0" max="6" title="@{dexterity}"/>
     <input class="skill-input" name="attr_dexterity_bonus" type="number" value="0" title="@{dexterity_bonus}"/>
     <input class="skill-input" name="attr_dexterity_total" type="number" value="0" title="@{dexterity_total}"/>
-    <button class="roll-button" name="roll_dexterity_roll" value="&{template:default} {{name= @{character_name} | Dexterity Roll}} {{result=[[(@{dexterity_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_dexterity_roll" value="&{template:custom} {{name= @{character_name} | Dexterity Roll}} {{result=[[(@{dexterity_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Diplomacy (WP)</label>
     <input class="skill-input" name="attr_diplomacy" type="number" value="0" min="0" max="6" title="@{diplomacy}"/>
     <input class="skill-input" name="attr_diplomacy_bonus" type="number" value="0" title="@{diplomacy_bonus}"/>
     <input class="skill-input" name="attr_diplomacy_total" type="number" value="0" title="@{diplomacy_total}"/>
-    <button class="roll-button" name="roll_diplomacy_roll" value="&{template:default} {{name= @{character_name} | Diplomacy Roll}} {{result=[[(@{diplomacy_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_diplomacy_roll" value="&{template:custom} {{name= @{character_name} | Diplomacy Roll}} {{result=[[(@{diplomacy_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Discipline (WP)</label>
     <input class="skill-input" name="attr_discipline" type="number" value="0" min="0" max="6" title="@{discipline}"/>
     <input class="skill-input" name="attr_discipline_bonus" type="number" value="0" title="@{discipline_bonus}"/>
     <input class="skill-input" name="attr_discipline_total" type="number" value="0" title="@{discipline_total}"/>
-    <button class="roll-button" name="roll_discipline_roll" value="&{template:default} {{name= @{character_name} | Discipline Roll}} {{result=[[(@{discipline_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_discipline_roll" value="&{template:custom} {{name= @{character_name} | Discipline Roll}} {{result=[[(@{discipline_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Fighting (Ag)</label>
     <input class="skill-input" name="attr_fightingag" type="number" value="0" min="0" max="6" title="@{fightingag}"/>
     <input class="skill-input" name="attr_fightingag_bonus" type="number" value="0" title="@{fightingag_bonus}"/>
     <input class="skill-input" name="attr_fightingag_total" type="number" value="0" title="@{fightingag_total}"/>
-    <button class="roll-button" name="roll_fightingag_roll" value="&{template:default} {{name= @{character_name} | Fighting Roll Agility}} {{result=[[(@{fightingag_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_fightingag_roll" value="&{template:custom} {{name= @{character_name} | Fighting Roll Agility}} {{result=[[(@{fightingag_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Fighting (M)</label>
     <input class="skill-input" name="attr_fightingm" type="number" value="0" min="0" max="6" title="@{fightingm}"/>
     <input class="skill-input" name="attr_fightingm_bonus" type="number" value="0" title="@{fightingm_bonus}"/>
     <input class="skill-input" name="attr_fightingm_total" type="number" value="0" title="@{fightingm_total}"/>
-    <button class="roll-button" name="roll_fightingm_roll" value="&{template:default} {{name= @{character_name} | Fighting Roll Might}} {{result=[[(@{fightingm_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_fightingm_roll" value="&{template:custom} {{name= @{character_name} | Fighting Roll Might}} {{result=[[(@{fightingm_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Folklore (WP)</label>
     <input class="skill-input" name="attr_folklore" type="number" value="0" min="0" max="6" title="@{folklore}"/>
     <input class="skill-input" name="attr_folklore_bonus" type="number" value="0" title="@{folklore_bonus}"/>
     <input class="skill-input" name="attr_folklore_total" type="number" value="0" title="@{folklore_total}"/>
-    <button class="roll-button" name="roll_folklore_roll" value="&{template:default} {{name= @{character_name} | Folklore Roll}} {{result=[[(@{folklore_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_folklore_roll" value="&{template:custom} {{name= @{character_name} | Folklore Roll}} {{result=[[(@{folklore_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Fortune (F)</label>
     <input class="skill-input" name="attr_fortune" type="number" value="0" min="0" max="6" title="@{fortune}"/>
     <input class="skill-input" name="attr_fortune_bonus" type="number" value="0" title="@{fortune_bonus}"/>
     <input class="skill-input" name="attr_fortune_total" type="number" value="0" title="@{fortune_total}"/>
-    <button class="roll-button" name="roll_fortune_roll" value="&{template:default} {{name= @{character_name} | Fortune Roll}} {{result=[[(@{fortune_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_fortune_roll" value="&{template:custom} {{name= @{character_name} | Fortune Roll}} {{result=[[(@{fortune_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Heal (Int)</label>
     <input class="skill-input" name="attr_heal" type="number" value="0" min="0" max="6" title="@{heal}"/>
     <input class="skill-input" name="attr_heal_bonus" type="number" value="0" title="@{heal_bonus}"/>
     <input class="skill-input" name="attr_heal_total" type="number" value="0" title="@{heal_total}"/>
-    <button class="roll-button" name="roll_heal_roll" value="&{template:default} {{name= @{character_name} | Heal Roll}} {{result=[[(@{heal_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_heal_roll" value="&{template:custom} {{name= @{character_name} | Heal Roll}} {{result=[[(@{heal_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Leadership (WP)</label>
     <input class="skill-input" name="attr_leadership" type="number" value="0" min="0" max="6" title="@{leadership}"/>
     <input class="skill-input" name="attr_leadership_bonus" type="number" value="0" title="@{leadership_bonus}"/>
     <input class="skill-input" name="attr_leadership_total" type="number" value="0" title="@{leadership_total}"/>
-    <button class="roll-button" name="roll_leadership_roll" value="&{template:default} {{name= @{character_name} | Leadership Roll}} {{result=[[(@{leadership_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_leadership_roll" value="&{template:custom} {{name= @{character_name} | Leadership Roll}} {{result=[[(@{leadership_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Magic (Int)</label>
     <input class="skill-input" name="attr_magicint" type="number" value="0" min="0" max="6" title="@{magicint}"/>
     <input class="skill-input" name="attr_magicint_bonus" type="number" value="0" title="@{magicint_bonus}"/>
     <input class="skill-input" name="attr_magicint_total" type="number" value="0" title="@{magicint_total}"/>
-    <button class="roll-button" name="roll_magicint_roll" value="&{template:default} {{name= @{character_name} | Magic Roll Spells}} {{result=[[(@{magicint_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_magicint_roll" value="&{template:custom} {{name= @{character_name} | Magic Roll Spells}} {{result=[[(@{magicint_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Magic (WP)</label>
     <input class="skill-input" name="attr_magicwp" type="number" value="0" min="0" max="6" title="@{magicwp}"/>
     <input class="skill-input" name="attr_magicwp_bonus" type="number" value="0" title="@{magicwp_bonus}"/>
     <input class="skill-input" name="attr_magicwp_total" type="number" value="0" title="@{magicwp_total}"/>
-    <button class="roll-button" name="roll_magicwp_roll" value="&{template:default} {{name= @{character_name} | Magic Roll Miracles}} {{result=[[(@{magicwp_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_magicwp_roll" value="&{template:custom} {{name= @{character_name} | Magic Roll Miracles}} {{result=[[(@{magicwp_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Masonry (M)</label>
     <input class="skill-input" name="attr_masonry" type="number" value="0" min="0" max="6" title="@{masonry}"/>
     <input class="skill-input" name="attr_masonry_bonus" type="number" value="0" title="@{masonry_bonus}"/>
     <input class="skill-input" name="attr_masonry_total" type="number" value="0" title="@{masonry_total}"/>
-    <button class="roll-button" name="roll_masonry_roll" value="&{template:default} {{name= @{character_name} | Masonry Roll}} {{result=[[(@{masonry_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_masonry_roll" value="&{template:custom} {{name= @{character_name} | Masonry Roll}} {{result=[[(@{masonry_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Orientation (Int)</label>
     <input class="skill-input" name="attr_orientation" type="number" value="0" min="0" max="6" title="@{orientation}"/>
     <input class="skill-input" name="attr_orientation_bonus" type="number" value="0" title="@{orientation_bonus}"/>
     <input class="skill-input" name="attr_orientation_total" type="number" value="0" title="@{orientation_total}"/>
-    <button class="roll-button" name="roll_orientation_roll" value="&{template:default} {{name= @{character_name} | Orientation Roll}} {{result=[[(@{orientation_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_orientation_roll" value="&{template:custom} {{name= @{character_name} | Orientation Roll}} {{result=[[(@{orientation_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Perception (WP)</label>
     <input class="skill-input" name="attr_perception" type="number" value="0" min="0" max="6" title="@{perception}"/>
     <input class="skill-input" name="attr_perception_bonus" type="number" value="0" title="@{perception_bonus}"/>
     <input class="skill-input" name="attr_perception_total" type="number" value="0" title="@{perception_total}"/>
-    <button class="roll-button" name="roll_perception_roll" value="&{template:default} {{name= @{character_name} | Perception Roll}} {{result=[[(@{perception_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_perception_roll" value="&{template:custom} {{name= @{character_name} | Perception Roll}} {{result=[[(@{perception_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Resiliency (T)</label>
     <input class="skill-input" name="attr_resiliency" type="number" value="0" min="0" max="6" title="@{resiliency}"/>
     <input class="skill-input" name="attr_resiliency_bonus" type="number" value="0" title="@{resiliency_bonus}"/>
     <input class="skill-input" name="attr_resiliency_total" type="number" value="0" title="@{resiliency_total}"/>
-    <button class="roll-button" name="roll_resiliency_roll" value="&{template:default} {{name= @{character_name} | Resiliency Roll}} {{result=[[(@{resiliency_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_resiliency_roll" value="&{template:custom} {{name= @{character_name} | Resiliency Roll}} {{result=[[(@{resiliency_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Ride (Ag)</label>
     <input class="skill-input" name="attr_ride" type="number" value="0" min="0" max="6" title="@{ride}"/>
     <input class="skill-input" name="attr_ride_bonus" type="number" value="0" title="@{ride_bonus}"/>
     <input class="skill-input" name="attr_ride_total" type="number" value="0" title="@{ride_total}"/>
-    <button class="roll-button" name="roll_ride_roll" value="&{template:default} {{name= @{character_name} | Ride Roll}} {{result=[[(@{ride_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_ride_roll" value="&{template:custom} {{name= @{character_name} | Ride Roll}} {{result=[[(@{ride_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Shooting (Ag)</label>
     <input class="skill-input" name="attr_shooting" type="number" value="0" min="0" max="6" title="@{shooting}"/>
     <input class="skill-input" name="attr_shooting_bonus" type="number" value="0" title="@{shooting_bonus}"/>
     <input class="skill-input" name="attr_shooting_total" type="number" value="0" title="@{shooting_total}"/>
-    <button class="roll-button" name="roll_shooting_roll" value="&{template:default} {{name= @{character_name} | Shooting Roll}} {{result=[[(@{shooting_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_shooting_roll" value="&{template:custom} {{name= @{character_name} | Shooting Roll}} {{result=[[(@{shooting_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Smithing (M)</label>
     <input class="skill-input" name="attr_smithing" type="number" value="0" min="0" max="6" title="@{smithing}"/>
     <input class="skill-input" name="attr_smithing_bonus" type="number" value="0" title="@{smithing_bonus}"/>
     <input class="skill-input" name="attr_smithing_total" type="number" value="0" title="@{smithing_total}"/>
-    <button class="roll-button" name="roll_smithing_roll" value="&{template:default} {{name= @{character_name} | Smithing Roll}} {{result=[[(@{smithing_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_smithing_roll" value="&{template:custom} {{name= @{character_name} | Smithing Roll}} {{result=[[(@{smithing_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Stealth (Ag)</label>
     <input class="skill-input" name="attr_stealth" type="number" value="0" min="0" max="6" title="@{stealth}"/>
     <input class="skill-input" name="attr_stealth_bonus" type="number" value="0" title="@{stealth_bonus}"/>
     <input class="skill-input" name="attr_stealth_total" type="number" value="0" title="@{stealth_total}"/>
-    <button class="roll-button" name="roll_stealth_roll" value="&{template:default} {{name= @{character_name} | Stealth Roll}} {{result=[[(@{stealth_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_stealth_roll" value="&{template:custom} {{name= @{character_name} | Stealth Roll}} {{result=[[(@{stealth_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Survival (WP)</label>
     <input class="skill-input" name="attr_survival" type="number" value="0" min="0" max="6" title="@{survival}"/>
     <input class="skill-input" name="attr_survival_bonus" type="number" value="0" title="@{survival_bonus}"/>
     <input class="skill-input" name="attr_survival_total" type="number" value="0" title="@{survival_total}"/>
-    <button class="roll-button" name="roll_survival_roll" value="&{template:default} {{name= @{character_name} | Survival Roll}} {{result=[[(@{survival_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_survival_roll" value="&{template:custom} {{name= @{character_name} | Survival Roll}} {{result=[[(@{survival_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
     <label class="skill-label">Tracking (Int)</label>
     <input class="skill-input" name="attr_tracking" type="number" value="0" min="0" max="6" title="@{tracking}"/>
     <input class="skill-input" name="attr_tracking_bonus" type="number" value="0" title="@{tracking_bonus}"/>
     <input class="skill-input" name="attr_tracking_total" type="number" value="0" title="@{tracking_total}"/>
-    <button class="roll-button" name="roll_tracking_roll" value="&{template:default} {{name= @{character_name} | Tracking Roll}} {{result=[[(@{tracking_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+    <button class="roll-button" name="roll_tracking_roll" value="&{template:custom} {{name= @{character_name} | Tracking Roll}} {{result=[[(@{tracking_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
     </button>
   </div>
   <div class="span2" name="attr_weapons" title="@{weapons}">
@@ -350,7 +350,7 @@
           <input class="weapon-input" name="attr_weapondamage" value="0" type="number" title="@{repeating_attacks_$X_weapondamage}"/>
           <input class="weapon-input" name="attr_weaponap" value="0" data-i18n="AP" type="number" title="@{repeating_attacks_$X_weaponap}"/>
           <input class="weapon-input" name="attr_weapontraits" type="text" title="@{repeating_attacks_$X_weapontraits}"/>
-          <button class="roll-button" name="roll_weapon_damage_roll" value="&{template:default} {{name= @{character_name} | @{weaponname} Damage Roll}} {{result=[[(@{weapondamage}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
+          <button class="roll-button" name="roll_weapon_damage_roll" value="&{template:custom} {{name= @{character_name} | @{weaponname} Damage Roll}} {{result=[[(@{weapondamage}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}" type="roll">
           </button>
         </div>
       </fieldset>
@@ -407,13 +407,12 @@
 <rolltemplate class="sheet-rolltemplate-custom">
   <div class="template custom">
     <div class="header">{{#name}}
-      <h5>{{name}}</h5>
-      <h5>{{roll_name}}</h5>{{/name}}{{#character_name}}{{#character_id}}
+      <h5>{{name}}</h5>{{/name}}{{#character_name}}{{#character_id}}
       <h4 class="character_name">[{{character_name}}](http://journal.roll20.net/character/{{character_id}})</h4>{{/character_id}}{{^character_id}}
       <h4 class="character_name">{{character_name}}</h4>{{/character_id}}{{/character_name}}
-    </div>{{#roll}}
-    <div class="template-row"> {{#roll_name}}<span class="description">Result {{roll}}</span>{{/roll_name}}
-    </div>{{/roll}}
+    </div>{{#result}}
+    <div class="template-row">{{#rollTotal() result 1}}{{#rollTotal() colour 5}}<span class="description">{{result}} success on White dice</span>{{/rollTotal() colour 5}}{{#rollTotal() colour 4}}<span class="description">{{result}} success on Red dice</span>{{/rollTotal() colour 4}}{{#rollTotal() colour 3}}<span class="description">{{result}} success on Black dice</span>{{/rollTotal() colour 3}}{{/rollTotal() result 1}}{{#^rollTotal() result 1}}{{#rollTotal() colour 5}}<span class="description">{{result}} successes on White dice</span>{{/rollTotal() colour 5}}{{#rollTotal() colour 4}}<span class="description">{{result}} successes on Red dice</span>{{/rollTotal() colour 4}}{{#rollTotal() colour 3}}<span class="description">{{result}} successes on Black dice</span>{{/rollTotal() colour 3}}{{/^rollTotal() result 1}}
+    </div>{{/result}}
   </div>
 </rolltemplate>
 <script type="text/worker">//# sourceURL=oathhammersheet.js

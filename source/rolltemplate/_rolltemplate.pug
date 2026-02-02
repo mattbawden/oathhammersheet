@@ -2,9 +2,20 @@
   .header
     +templateConditionalDisplay('name')
       h5 {{name}}
-      h5 {{roll_name}}
     +characterLink()
-  +templateConditionalDisplay('roll')
-    .template-row 
-      +templateConditionalDisplay('roll_name')
-        span.description Result {{roll}}
+  +templateConditionalDisplay('result')
+    .template-row
+      +rollTotal({values:'result 1'})
+        +rollTotal({values:'colour 5'})
+          span.description {{result}} success on White dice
+        +rollTotal({values:'colour 4'})
+          span.description {{result}} success on Red dice
+        +rollTotal({values:'colour 3'})
+          span.description {{result}} success on Black dice
+      +rollTotal({values:'result 1', invert:true})
+        +rollTotal({values:'colour 5'})
+          span.description {{result}} successes on White dice
+        +rollTotal({values:'colour 4'})
+          span.description {{result}} successes on Red dice
+        +rollTotal({values:'colour 3'})
+          span.description {{result}} successes on Black dice

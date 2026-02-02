@@ -306,38 +306,6 @@ body{
             padding: 4px 8px;
             border: 1px solid black;
           }
-          .sheet-rolltemplate-custom .template {
-              border: 1px solid;
-              /* by default, the border is the same color as the header. You can change this here, e.g. to black */
-              border-color: black;
-          }
-          .sheet-rolltemplate-custom .header {
-              background-color: black;
-              /* change text-align to center to center the header text */
-              text-align: left;
-              color: white;
-              font-weight: bold;
-              padding: 5px;
-          }
-          .sheet-rolltemplate-custom .sheet-custom {
-              display: grid;
-              background: #FFF;
-              color: black;
-              /* Header formatting - modify the column layout below */
-              grid-template-columns: auto auto;
-              /* Line height to match default roll template */
-              line-height:1.4em;
-          }
-          .sheet-rolltemplate-custom .sheet-template-row > div {
-              padding: 5px;
-          }
-          .sheet-rolltemplate-custom .sheet-template-row {
-              grid-column: span 2;
-              padding: 5px;
-              text-align: center;
-              font-weight: bold;
-              font-size: 16px;
-          }
         }
       }
     }
