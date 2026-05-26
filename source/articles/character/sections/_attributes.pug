@@ -17,10 +17,10 @@
     +hidden({name:'intelligencebonus', type:'number', value:'0', trigger:{formula:'@{intelligence}'}}).attribute-points
     +input({name:'fate', type:'number', value:'0',min: '1', max: '5',trigger:{affects:['fatebonus']}}).attribute-points
     +hidden({name:'fatebonus', type:'number', value:'0', trigger:{formula:'@{fate}'}}).attribute-points
+    +div({name:'lineage traits'}).lineage-traits.startspan6
+        label(class='header-label') Lineage Traits
+        +adaptiveTextarea({name:'lineagetraits', placeholder:'Enter lineage traits here...'  })
 +div({name:'other attributes'}).other-attributes
-    +div({name:'initiative grid'}).initiative-grid
-        label(class='header-label') Initiative
-        +button({name: 'initiative roll', value: '&{template:custom} {{name= @{character_name} | Initiative Roll}} {{result=[[(@{leadership_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}&{tracker}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='header-label') Oaths
     +adaptiveTextarea({name:'oaths', placeholder:'Enter Oaths here...'  })
     label(class='header-label') Armor Proficiencies
@@ -40,9 +40,6 @@
         +input({name:'armor av', type:'number', value:'0', min:'0'}).armor-input
         +input({name:'armor penalty', type:'number', value:'0', min:'0'}).armor-input
         +input({name:'armor traits', type:'text', placeholder:'Armor Traits'}).armor-input
-    +div({name:'armor roll'}).armor-roll
-        label(class='header-label') Armor Roll 
-        +button({name: 'armor roll', value: '&{template:custom} {{name= @{character_name} | Armor Roll}} {{result=[[(@{armor_av}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
 +div({name:'skill grid'}).skill-grid
     //div(class='span4 header-label') Skill Ranks + Attribute = Total Dice
     label(class='header-label') Skill
@@ -54,147 +51,147 @@
     +input({name:'academics',type:'number',value:'0', min:'0', max:'6',trigger:{affects:['academics_total']}}).skill-input
     +input({name:'academics bonus',type:'number',value:'0', trigger:{affects:['academics_total']}}).skill-input
     +input({name:'academics total',type:'number',value:'0', trigger:{formula:'@{academics} + @{academics_bonus} + @{intelligencebonus}'}}).skill-input
-    +button({name: 'academics roll', value: '&{template:custom} {{name= @{character_name} | Academics Roll}} {{result=[[(@{academics_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'academics roll', value: '&{template:custom} {{name= @{character_name} | Academics Roll}} {{result=[[(@{academics_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Acrobatics (Ag)
     +input({name:'acrobatics',type:'number',value:'0', min:'0', max:'6',trigger:{affects:['acrobatics_total']}}).skill-input
     +input({name:'acrobatics bonus',type:'number',value:'0', trigger:{affects:['acrobatics_total']}}).skill-input
     +input({name:'acrobatics total',type:'number',value:'0', trigger:{formula:'@{acrobatics} + @{acrobatics_bonus} + @{agilitybonus} + @{armor_penalty}'}}).skill-input
-    +button({name: 'acrobatics roll', value: '&{template:custom} {{name= @{character_name} | Acrobatics Roll}} {{result=[[(@{acrobatics_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'acrobatics roll', value: '&{template:custom} {{name= @{character_name} | Acrobatics Roll}} {{result=[[(@{acrobatics_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Animal Handling (WP)
     +input({name:'animalhandling',type:'number',value:'0', min:'0', max:'6',trigger:{affects:['animalhandling_total']}}).skill-input
     +input({name:'animalhandling bonus',type:'number',value:'0', trigger:{affects:['animalhandling_total']}}).skill-input
     +input({name:'animalhandling total',type:'number',value:'0', trigger:{formula:'@{animalhandling} + @{animalhandling_bonus} + @{willpowerbonus}'}}).skill-input
-    +button({name: 'animalhandling roll', value: '&{template:custom} {{name= @{character_name} | Animal Handling Roll}} {{result=[[(@{animalhandling_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'animalhandling roll', value: '&{template:custom} {{name= @{character_name} | Animal Handling Roll}} {{result=[[(@{animalhandling_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Athletics (M)
     +input({name:'athletics',type:'number',value:'0', min:'0', max:'6',trigger:{affects:['athletics_total']}}).skill-input
     +input({name:'athletics bonus',type:'number',value:'0', trigger:{affects:['athletics_total']}}).skill-input
     +input({name:'athletics total',type:'number',value:'0', trigger:{formula:'@{athletics} + @{athletics_bonus} + @{mightbonus}'}}).skill-input
-    +button({name: 'athletics roll', value: '&{template:custom} {{name= @{character_name} | Athletics Roll}} {{result=[[(@{athletics_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'athletics roll', value: '&{template:custom} {{name= @{character_name} | Athletics Roll}} {{result=[[(@{athletics_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Brewing (Int)
     +input({name:'brewing', type:'number', value:'0', min:'0', max:'6', trigger:{affects:['brewing_total']}}).skill-input
     +input({name:'brewing bonus', type:'number', value:'0', trigger:{affects:['brewing_total']}}).skill-input
     +input({name:'brewing total', type:'number', trigger:{formula:'@{brewing} + @{brewing_bonus} + @{intelligencebonus}'}}).skill-input
-    +button({name: 'brewing roll', value: '&{template:custom} {{name= @{character_name} | Brewing Roll}} {{result=[[(@{brewing_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'brewing roll', value: '&{template:custom} {{name= @{character_name} | Brewing Roll}} {{result=[[(@{brewing_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Carpentry (Ag)
     +input({name:'carpentry',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['carpentry_total']}}).skill-input
     +input({name:'carpentry bonus',type:'number',value:'0', trigger:{affects:['carpentry_total']}}).skill-input
     +input({name:'carpentry total',type:'number',value:'0', trigger:{formula:'@{carpentry} + @{carpentry_bonus} + @{agilitybonus}'}}).skill-input
-    +button({name: 'carpentry roll', value: '&{template:custom} {{name= @{character_name} | Carpentry Roll}} {{result=[[(@{carpentry_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'carpentry roll', value: '&{template:custom} {{name= @{character_name} | Carpentry Roll}} {{result=[[(@{carpentry_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Defense (Ag)
     +input({name:'defenseag',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['defenseag_total']}}).skill-input
     +input({name:'defenseag bonus',type:'number',value:'0', trigger:{affects:['defenseag_total']}}).skill-input
     +input({name:'defenseag total',type:'number',value:'0', trigger:{formula:'@{defenseag} + @{defenseag_bonus} + (@{agilitybonus} + @{armor_penalty})'}}).skill-input
-    +button({name: 'defenseag roll', value: '&{template:custom} {{name= @{character_name} | Defense Roll Agility}} {{result=[[(@{defenseag_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'defenseag roll', value: '&{template:custom} {{name= @{character_name} | Defense Roll Agility}} {{result=[[(@{defenseag_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Defense (M)
     +input({name:'defensem',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['defensem_total']}}).skill-input
     +input({name:'defensem bonus',type:'number',value:'0', trigger:{affects:['defensem_total']}}).skill-input
     +input({name:'defensem total',type:'number',value:'0', trigger:{formula:'@{defensem} + @{defensem_bonus} + (@{mightbonus} + @{armor_penalty})'}}).skill-input
-    +button({name: 'defensem roll', value: '&{template:custom} {{name= @{character_name} | Defense Roll Might}} {{result=[[(@{defensem_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'defensem roll', value: '&{template:custom} {{name= @{character_name} | Defense Roll Might}} {{result=[[(@{defensem_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Dexterity (Ag)
     +input({name:'dexterity',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['dexterity_total']}}).skill-input
     +input({name:'dexterity bonus',type:'number',value:'0', trigger:{affects:['dexterity_total']}}).skill-input
     +input({name:'dexterity total',type:'number',value:'0', trigger:{formula:'@{dexterity} + @{dexterity_bonus} + @{agilitybonus}'}}).skill-input
-    +button({name: 'dexterity roll', value: '&{template:custom} {{name= @{character_name} | Dexterity Roll}} {{result=[[(@{dexterity_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'dexterity roll', value: '&{template:custom} {{name= @{character_name} | Dexterity Roll}} {{result=[[(@{dexterity_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Diplomacy (WP)
     +input({name:'diplomacy',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['diplomacy_total']}}).skill-input
     +input({name:'diplomacy bonus',type:'number',value:'0', trigger:{affects:['diplomacy_total']}}).skill-input
     +input({name:'diplomacy total',type:'number',value:'0', trigger:{formula:'@{diplomacy} + @{diplomacy_bonus} + @{willpowerbonus}'}}).skill-input
-    +button({name: 'diplomacy roll', value: '&{template:custom} {{name= @{character_name} | Diplomacy Roll}} {{result=[[(@{diplomacy_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'diplomacy roll', value: '&{template:custom} {{name= @{character_name} | Diplomacy Roll}} {{result=[[(@{diplomacy_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Discipline (WP)
     +input({name:'discipline',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['discipline_total']}}).skill-input
     +input({name:'discipline bonus',type:'number',value:'0', trigger:{affects:['discipline_total']}}).skill-input
     +input({name:'discipline total',type:'number',value:'0', trigger:{formula:'@{discipline} + @{discipline_bonus} + @{willpowerbonus}'}}).skill-input
-    +button({name: 'discipline roll', value: '&{template:custom} {{name= @{character_name} | Discipline Roll}} {{result=[[(@{discipline_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'discipline roll', value: '&{template:custom} {{name= @{character_name} | Discipline Roll}} {{result=[[(@{discipline_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Fighting (Ag)
     +input({name:'fightingag',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['fightingag_total']}}).skill-input
     +input({name:'fightingag bonus',type:'number',value:'0', trigger:{affects:['fightingag_total']}}).skill-input
     +input({name:'fightingag total',type:'number',value:'0', trigger:{formula:'@{fightingag} + @{fightingag_bonus} + @{agilitybonus}'}}).skill-input
-    +button({name: 'fightingag roll', value: '&{template:custom} {{name= @{character_name} | Fighting Roll Agility}} {{result=[[(@{fightingag_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'fightingag roll', value: '&{template:custom} {{name= @{character_name} | Fighting Roll Agility}} {{result=[[(@{fightingag_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Fighting (M)
     +input({name:'fightingm',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['fightingm_total']}}).skill-input
     +input({name:'fightingm bonus',type:'number',value:'0', trigger:{affects:['fightingm_total']}}).skill-input
     +input({name:'fightingm total',type:'number',value:'0', trigger:{formula:'@{fightingm} + @{fightingm_bonus} + @{mightbonus}'}}).skill-input
-    +button({name: 'fightingm roll', value: '&{template:custom} {{name= @{character_name} | Fighting Roll Might}} {{result=[[(@{fightingm_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'fightingm roll', value: '&{template:custom} {{name= @{character_name} | Fighting Roll Might}} {{result=[[(@{fightingm_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Folklore (WP)
     +input({name:'folklore',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['folklore_total']}}).skill-input
     +input({name:'folklore bonus',type:'number',value:'0', trigger:{affects:['folklore_total']}}).skill-input
     +input({name:'folklore total',type:'number',value:'0', trigger:{formula:'@{folklore} + @{folklore_bonus} + @{willpowerbonus}'}}).skill-input
-    +button({name: 'folklore roll', value: '&{template:custom} {{name= @{character_name} | Folklore Roll}} {{result=[[(@{folklore_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'folklore roll', value: '&{template:custom} {{name= @{character_name} | Folklore Roll}} {{result=[[(@{folklore_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Fortune (F)
     +input({name:'fortune',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['fortune_total']}}).skill-input
     +input({name:'fortune bonus',type:'number',value:'0', trigger:{affects:['fortune_total']}}).skill-input
     +input({name:'fortune total',type:'number',value:'0', trigger:{formula:'@{fortune} + @{fortune_bonus} + @{fatebonus}'}}).skill-input
-    +button({name: 'fortune roll', value: '&{template:custom} {{name= @{character_name} | Fortune Roll}} {{result=[[(@{fortune_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'fortune roll', value: '&{template:custom} {{name= @{character_name} | Fortune Roll}} {{result=[[(@{fortune_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Heal (Int)
     +input({name:'heal',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['heal_total']}}).skill-input
     +input({name:'heal bonus',type:'number',value:'0', trigger:{affects:['heal_total']}}).skill-input
     +input({name:'heal total',type:'number',value:'0', trigger:{formula:'@{heal} + @{heal_bonus} + @{intelligencebonus}'}}).skill-input
-    +button({name: 'heal roll', value: '&{template:custom} {{name= @{character_name} | Heal Roll}} {{result=[[(@{heal_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'heal roll', value: '&{template:custom} {{name= @{character_name} | Heal Roll}} {{result=[[(@{heal_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Leadership (WP)
     +input({name:'leadership',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['leadership_total']}}).skill-input
     +input({name:'leadership bonus',type:'number',value:'0', trigger:{affects:['leadership_total']}}).skill-input
     +input({name:'leadership total',type:'number',value:'0', trigger:{formula:'@{leadership} + @{leadership_bonus} + @{willpowerbonus}'}}).skill-input
-    +button({name: 'leadership roll', value: '&{template:custom} {{name= @{character_name} | Leadership Roll}} {{result=[[(@{leadership_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'leadership roll', value: '&{template:custom} {{name= @{character_name} | Leadership Roll}} {{result=[[(@{leadership_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Magic (Int)
     +input({name:'magicint',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['magicint_total']}}).skill-input
     +input({name:'magicint bonus',type:'number',value:'0', trigger:{affects:['magicint_total']}}).skill-input
     +input({name:'magicint total',type:'number',value:'0', trigger:{formula:'@{magicint} + @{magicint_bonus} + @{intelligencebonus}'}}).skill-input
-    +button({name: 'magicint roll', value: '&{template:custom} {{name= @{character_name} | Magic Roll Spells}} {{result=[[(@{magicint_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'magicint roll', value: '&{template:custom} {{name= @{character_name} | Magic Roll Spells}} {{result=[[(@{magicint_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Magic (WP)
     +input({name:'magicwp',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['magicwp_total']}}).skill-input
     +input({name:'magicwp bonus',type:'number',value:'0', trigger:{affects:['magicwp_total']}}).skill-input
     +input({name:'magicwp total',type:'number',value:'0', trigger:{formula:'@{magicwp} + @{magicwp_bonus} + @{willpowerbonus}'}}).skill-input
-    +button({name: 'magicwp roll', value: '&{template:custom} {{name= @{character_name} | Magic Roll Miracles}} {{result=[[(@{magicwp_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'magicwp roll', value: '&{template:custom} {{name= @{character_name} | Magic Roll Miracles}} {{result=[[(@{magicwp_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Masonry (M)
     +input({name:'masonry',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['masonry_total']}}).skill-input
     +input({name:'masonry bonus',type:'number',value:'0', trigger:{affects:['masonry_total']}}).skill-input
     +input({name:'masonry total',type:'number',value:'0', trigger:{formula:'@{masonry} + @{masonry_bonus} + @{mightbonus}'}}).skill-input
-    +button({name: 'masonry roll', value: '&{template:custom} {{name= @{character_name} | Masonry Roll}} {{result=[[(@{masonry_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'masonry roll', value: '&{template:custom} {{name= @{character_name} | Masonry Roll}} {{result=[[(@{masonry_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Orientation (Int)
     +input({name:'orientation',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['orientation_total']}}).skill-input
     +input({name:'orientation bonus',type:'number',value:'0', trigger:{affects:['orientation_total']}}).skill-input
     +input({name:'orientation total',type:'number',value:'0', trigger:{formula:'@{orientation} + @{orientation_bonus} + @{intelligencebonus}'}}).skill-input
-    +button({name: 'orientation roll', value: '&{template:custom} {{name= @{character_name} | Orientation Roll}} {{result=[[(@{orientation_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'orientation roll', value: '&{template:custom} {{name= @{character_name} | Orientation Roll}} {{result=[[(@{orientation_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Perception (WP)
     +input({name:'perception',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['perception_total']}}).skill-input
     +input({name:'perception bonus',type:'number',value:'0', trigger:{affects:['perception_total']}}).skill-input
     +input({name:'perception total',type:'number',value:'0', trigger:{formula:'@{perception} + @{perception_bonus} + @{willpowerbonus}'}}).skill-input
-    +button({name: 'perception roll', value: '&{template:custom} {{name= @{character_name} | Perception Roll}} {{result=[[(@{perception_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
-    label(class='skill-label') Resiliency (T)
-    +input({name:'resiliency',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['resiliency_total']}}).skill-input
-    +input({name:'resiliency bonus',type:'number',value:'0', trigger:{affects:['resiliency_total']}}).skill-input
-    +input({name:'resiliency total',type:'number',value:'0', trigger:{formula:'@{resiliency} + @{resiliency_bonus} + @{toughnessbonus}'}}).skill-input
-    +button({name: 'resiliency roll', value: '&{template:custom} {{name= @{character_name} | Resiliency Roll}} {{result=[[(@{resiliency_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'perception roll', value: '&{template:custom} {{name= @{character_name} | Perception Roll}} {{result=[[(@{perception_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    label(class='skill-label') Resilience (T)
+    +input({name:'resilience',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['resilience_total']}}).skill-input
+    +input({name:'resilience bonus',type:'number',value:'0', trigger:{affects:['resilience_total']}}).skill-input
+    +input({name:'resilience total',type:'number',value:'0', trigger:{formula:'@{resilience} + @{resilience_bonus} + @{toughnessbonus}'}}).skill-input
+    +button({name: 'resilience roll', value: '&{template:custom} {{name= @{character_name} | Resilience Roll}} {{result=[[(@{resilience_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Ride (Ag)
     +input({name:'ride',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['ride_total']}}).skill-input
     +input({name:'ride bonus',type:'number',value:'0', trigger:{affects:['ride_total']}}).skill-input
     +input({name:'ride total',type:'number',value:'0', trigger:{formula:'@{ride} + @{ride_bonus} + @{agilitybonus}'}}).skill-input
-    +button({name: 'ride roll', value: '&{template:custom} {{name= @{character_name} | Ride Roll}} {{result=[[(@{ride_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'ride roll', value: '&{template:custom} {{name= @{character_name} | Ride Roll}} {{result=[[(@{ride_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Shooting (Ag)
     +input({name:'shooting',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['shooting_total']}}).skill-input
     +input({name:'shooting bonus',type:'number',value:'0', trigger:{affects:['shooting_total']}}).skill-input
     +input({name:'shooting total',type:'number',value:'0', trigger:{formula:'@{shooting} + @{shooting_bonus} + @{agilitybonus}'}}).skill-input
-    +button({name: 'shooting roll', value: '&{template:custom} {{name= @{character_name} | Shooting Roll}} {{result=[[(@{shooting_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'shooting roll', value: '&{template:custom} {{name= @{character_name} | Shooting Roll}} {{result=[[(@{shooting_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Smithing (M)
     +input({name:'smithing',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['smithing_total']}}).skill-input
     +input({name:'smithing bonus',type:'number',value:'0', trigger:{affects:['smithing_total']}}).skill-input
     +input({name:'smithing total',type:'number',value:'0', trigger:{formula:'@{smithing} + @{smithing_bonus} + @{mightbonus}'}}).skill-input
-    +button({name: 'smithing roll', value: '&{template:custom} {{name= @{character_name} | Smithing Roll}} {{result=[[(@{smithing_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'smithing roll', value: '&{template:custom} {{name= @{character_name} | Smithing Roll}} {{result=[[(@{smithing_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Stealth (Ag)
     +input({name:'stealth',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['stealth_total']}}).skill-input
     +input({name:'stealth bonus',type:'number',value:'0', trigger:{affects:['stealth_total']}}).skill-input
     +input({name:'stealth total',type:'number',value:'0', trigger:{formula:'@{stealth} + @{stealth_bonus} + @{agilitybonus}'}}).skill-input
-    +button({name: 'stealth roll', value: '&{template:custom} {{name= @{character_name} | Stealth Roll}} {{result=[[(@{stealth_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'stealth roll', value: '&{template:custom} {{name= @{character_name} | Stealth Roll}} {{result=[[(@{stealth_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Survival (WP)
     +input({name:'survival',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['survival_total']}}).skill-input
     +input({name:'survival bonus',type:'number',value:'0', trigger:{affects:['survival_total']}}).skill-input
     +input({name:'survival total',type:'number',value:'0', trigger:{formula:'@{survival} + @{survival_bonus} + @{willpowerbonus}'}}).skill-input
-    +button({name: 'survival roll', value: '&{template:custom} {{name= @{character_name} | Survival Roll}} {{result=[[(@{survival_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'survival roll', value: '&{template:custom} {{name= @{character_name} | Survival Roll}} {{result=[[(@{survival_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
     label(class='skill-label') Tracking (Int)
     +input({name:'tracking',type:'number',value:'0', min:'0', max:'6', trigger:{affects:['tracking_total']}}).skill-input
     +input({name:'tracking bonus',type:'number',value:'0', trigger:{affects:['tracking_total']}}).skill-input
     +input({name:'tracking total',type:'number',value:'0', trigger:{formula:'@{tracking} + @{tracking_bonus} + @{intelligencebonus}'}}).skill-input
-    +button({name: 'tracking roll', value: '&{template:custom} {{name= @{character_name} | Tracking Roll}} {{result=[[(@{tracking_total}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+    +button({name: 'tracking roll', value: '&{template:custom} {{name= @{character_name} | Tracking Roll}} {{result=[[(@{tracking_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
 +div({name:'weapons'}).span2
     +repeating_section('attacks','weapons',['name','range','damage','AP','traits'],'atk')
         +div({name:'weapon grid'}).weapon-grid
@@ -203,7 +200,7 @@
             +number({name:'weapondamage', value:'0', class:'weapon-input'})
             +number({name:'weaponap', value:'0', class:'weapon-input', 'data-i18n':'AP'})
             +text({name:'weapontraits', class:'weapon-input'})
-            +button({name:'weapon damage roll', value: '&{template:custom} {{name= @{character_name} | @{weaponname} Damage Roll}} {{result=[[(@{weapondamage}+?{Dice Modifier|0})d6!6>?{Dice Colour|White,4|Red,3|Black,2}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+            +button({name:'weapon damage roll', value: '&{template:custom} {{name= @{character_name} | @{weaponname} Damage Roll}} {{result=[[(@{weapondamage}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
 +div({name:'equipment'}).span2.other-block
     label(class='header-label') Equipment
     +div({name:'equipment grid'}).equipment-grid

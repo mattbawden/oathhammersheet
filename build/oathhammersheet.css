@@ -1212,13 +1212,13 @@ body .ui-dialog .tab-content .charsheet #main .fill-left__radio {
 body .ui-dialog .tab-content .charsheet #main .character-header {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 30px 30px;
   gap: 10px 20px;
 }
 body .ui-dialog .tab-content .charsheet #main .attributes-header {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 30px 30px;
+  padding-bottom: 10px;
 }
 body .ui-dialog .tab-content .charsheet #main .armor-header {
   display: grid;
@@ -1255,6 +1255,9 @@ body .ui-dialog .tab-content .charsheet #main .startspan3 {
 body .ui-dialog .tab-content .charsheet #main .startspan4 {
   grid-column: 1/span 4;
 }
+body .ui-dialog .tab-content .charsheet #main .startspan6 {
+  grid-column: 1/span 6;
+}
 body .ui-dialog .tab-content .charsheet #main .span3 {
   grid-column: 2/span 3;
 }
@@ -1290,6 +1293,12 @@ body .ui-dialog .tab-content .charsheet #main .initiative-grid {
   column-gap: 10px;
 }
 body .ui-dialog .tab-content .charsheet #main .armor-roll {
+  display: grid;
+  grid-template-columns: 100px 30px;
+  grid-template-rows: min-content;
+  column-gap: 10px;
+}
+body .ui-dialog .tab-content .charsheet #main .general-roll {
   display: grid;
   grid-template-columns: 100px 30px;
   grid-template-rows: min-content;
@@ -1343,6 +1352,20 @@ body .ui-dialog .tab-content .charsheet #main .other-attributes {
   flex-direction: column;
   width: 100%;
   row-gap: 10px;
+}
+body .ui-dialog .tab-content .charsheet #main .lineage-traits {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 10px;
+  padding-top: 10px;
+}
+body .ui-dialog .tab-content .charsheet #main .roller-block {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 10px;
+  padding-top: 10px;
 }
 body .ui-dialog .tab-content .charsheet #main .other-elements {
   display: flex;
@@ -2620,5 +2643,9 @@ body.sheet-darkmode {
   font-weight: bold;
   font-size: 1em;
   background-color: black;
+  color: white;
+}
+.sheet-rolltemplate-custom .sheet-template .inlinerollresult {
+  background: black;
   color: white;
 }

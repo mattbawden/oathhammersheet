@@ -96,13 +96,13 @@ body{
           .character-header{
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 30px 30px;
             gap: 10px 20px;
           }
           .attributes-header{
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
             grid-template-rows: 30px 30px;
+            padding-bottom: 10px;
           }
           .armor-header{
             display: grid;
@@ -139,6 +139,9 @@ body{
           .startspan4{
             grid-column: 1 / span 4;
           }
+          .startspan6{
+            grid-column: 1 / span 6;
+          }
           .span3{
             grid-column: 2 / span 3;
           }
@@ -174,6 +177,12 @@ body{
             column-gap: 10px;
           }
           .armor-roll{
+            display: grid;
+            grid-template-columns: 100px 30px;
+            grid-template-rows: min-content;
+            column-gap: 10px;
+          }
+          .general-roll{
             display: grid;
             grid-template-columns: 100px 30px;
             grid-template-rows: min-content;
@@ -227,6 +236,20 @@ body{
             flex-direction: column;
             width: 100%;
             row-gap: 10px;
+          }
+          .lineage-traits{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            row-gap: 10px;
+            padding-top: 10px;
+          }
+          .roller-block{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            row-gap: 10px;
+            padding-top: 10px;
           }
           .other-elements{
             display: flex;

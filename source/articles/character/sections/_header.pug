@@ -43,3 +43,13 @@
     +input-label({inputObj:{name:'luck', type:'number'},spanObj:{'data-i18n':'Luck Points'}})
     +input-label({inputObj:{name:'gritcurr', type:'number'},spanObj:{'data-i18n':'Current Grit'}})
     +input-label({inputObj:{name:'luckcurr', type:'number'},spanObj:{'data-i18n':'Current Luck'}})
+    +div({name:'dice rollers'}).roller-block
+        +div({name:'initiative grid'}).initiative-grid
+            label(class='header-label') Initiative
+            +button({name: 'initiative roll', value: '&{template:custom} {{name= @{character_name} | Initiative Roll}} {{result=[[(@{leadership_total}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}&{tracker}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+        +div({name:'armor roll'}).armor-roll
+            label(class='header-label') Armor Roll 
+            +button({name: 'armor roll', value: '&{template:custom} {{name= @{character_name} | Armor Roll}} {{result=[[(@{armor_av}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
+        +div({name:'general roll'}).general-roll
+            label(class='header-label') Dice Roll 
+            +button({name: 'general roll', value: '&{template:custom} {{name= @{character_name} | General Roll}} {{result=[[(?{Number of d6|1}+?{Dice Modifier|0})d6!?{Explode Threshold|Normal,6|Special,5}>?{Dice Colour|White,4|Red,3|Black,2}cs>?{Explode Threshold|Normal,6|Special,5}]]}} {{colour=[[1+?{Dice Colour|White,4|Red,3|Black,2}]]}}'}).roll-button
